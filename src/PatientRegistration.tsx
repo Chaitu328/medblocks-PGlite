@@ -1,19 +1,32 @@
+import { usePGlite } from '@electric-sql/pglite-react'
 import { useState } from 'react'
+import PatientList from './PatientList'
 
 function PatientRegistration() {
-    const [name, setName] = useState('')
-    const [age, setAge] = useState<number | ''>('')
-    const [gender, setGender] = useState('')
+  const db = usePGlite()
 
-    const registerPatient = async () => {
+  const [name, setName] = useState('')
+  const [age, setAge] = useState<number | ''>('')
+  const [gender, setGender] = useState('')
+
+  const registerPatient = async () => {
     if (!name || !age) {
       alert('Please fill name and age')
       return
     }
+
+    await db.query(
+      `INSERT INTO patients (name, age, gender) VALUES ($1, $2, $3)`,
+      [name, age, gender || null],
+    )
+
+    setName('')
+    setAge('')
+    setGender('')
   }
 
   return (
-     <>
+    <>
       <h2>Register New Patient</h2>
       <form
         onSubmit={(e) => {
@@ -48,6 +61,7 @@ function PatientRegistration() {
         <button type="submit">Register Patient</button>
       </form>
 
+      <PatientList />
     </>
   )
 }
