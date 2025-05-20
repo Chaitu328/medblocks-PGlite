@@ -35,4 +35,4 @@ A lightweight, client-side patient registration app built with **React**, **Type
 
 Below is a screenshot of the patient registration form used in the application:
 
-![Patient Registration Form](src/assets/image.png)
+![Patient Registration Form](src\assets\image.jpg)
