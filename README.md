@@ -28,8 +28,8 @@ A lightweight, client-side patient registration app built with **React**, **Type
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/patient-registration-app.git
-   cd patient-registration-app
+   git clone https://github.com/Chaitu328/medblocks-PGlite.git
+   cd medblocks-PGlite
 
 ##  Screenshot
 
